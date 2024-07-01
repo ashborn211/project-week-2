@@ -51,7 +51,7 @@ header h1 {
     margin-bottom: 20px;
 }
 
-.chatroom-wrapper {
+.main-content {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -63,7 +63,6 @@ header h1 {
     background: #fff;
     border-radius: 8px;
     margin-right: 20px;
-    max-width: 200px;
 }
 
 .chatroom-list h2 {
