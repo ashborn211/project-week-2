@@ -1,15 +1,15 @@
-"use client"
-import { useState } from "react";
-import "../upload/upload-style.css"
+import { useState } from 'react';
+import { db } from '../firebaseConfig'; // Adjust the path to your Firebase configuration
+
 type UploadFormProps = {
   onSubmit: (file: File, subject: string, tags: string[]) => void;
 };
 
 const UploadForm: React.FC<UploadFormProps> = ({ onSubmit }) => {
   const [file, setFile] = useState<File | null>(null);
-  const [subject, setSubject] = useState("");
+  const [subject, setSubject] = useState<string>('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const tags = ["Math", "Science", "History", "Literature"]; // Example tags
+  const tags: string[] = ['Math', 'Science', 'History', 'Literature']; // Example tags
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -22,10 +22,10 @@ const UploadForm: React.FC<UploadFormProps> = ({ onSubmit }) => {
   };
 
   const toggleDropdown = () => {
-    const dropdown = document.getElementById("tagsDropdown");
+    const dropdown = document.getElementById('tagsDropdown');
     if (dropdown) {
       dropdown.style.display =
-        dropdown.style.display === "block" ? "none" : "block";
+        dropdown.style.display === 'block' ? 'none' : 'block';
     }
   };
 
@@ -37,16 +37,35 @@ const UploadForm: React.FC<UploadFormProps> = ({ onSubmit }) => {
     }
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (file && subject && selectedTags.length > 0) {
-      onSubmit(file, subject, selectedTags);
-      setFile(null);
-      setSubject("");
-      setSelectedTags([]);
+      try {
+        // Upload file metadata to Firestore
+        const fileData = {
+          fileName: file.name,
+          subject: subject,
+          tags: selectedTags,
+          createdAt: new Date(),
+        };
+
+        // Add document with random ID to "files" collection
+        await db.collection('files').add(fileData);
+
+        // Call onSubmit callback
+        onSubmit(file, subject, selectedTags);
+
+        // Reset state
+        setFile(null);
+        setSubject('');
+        setSelectedTags([]);
+      } catch (error) {
+        console.error('Error uploading file metadata to Firestore: ', error);
+        // Handle error as needed
+      }
     } else {
       alert(
-        "Please select a file, enter a subject, and choose at least one tag."
+        'Please select a file, enter a subject, and choose at least one tag.'
       );
     }
   };
@@ -71,7 +90,7 @@ const UploadForm: React.FC<UploadFormProps> = ({ onSubmit }) => {
             <a
               key={tag}
               href="#"
-              className={selectedTags.includes(tag) ? "selected" : ""}
+              className={selectedTags.includes(tag) ? 'selected' : ''}
               onClick={(e) => {
                 e.preventDefault();
                 toggleTag(tag);
