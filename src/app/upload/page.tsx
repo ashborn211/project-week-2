@@ -1,6 +1,8 @@
-"use client"
+"use client"// src/app/upload/page.tsx
+
 import Head from 'next/head';
-import UploadForm from '../../components/UploadForm'; // Adjust the path as per your folder structure
+import UploadForm from '../components/UploadForm';
+import './upload-style.css'; // Import specific styles for the upload page
 
 const UploadPage = () => {
   const handleSubmit = (file: File, subject: string, tags: string[]) => {
@@ -16,7 +18,6 @@ const UploadPage = () => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Upload Files</title>
-        <link rel="stylesheet" href="/styles/upload-styles.css" /> {/* Adjust the path to your CSS file */}
       </Head>
 
       <header>

@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-
+import "../upload/upload-style.css"
 type UploadFormProps = {
   onSubmit: (file: File, subject: string, tags: string[]) => void;
 };

@@ -1,7 +1,8 @@
 // pages/index.tsx
 
-import Head from 'next/head';
-import './style.css'; // Import your CSS file here
+import Head from "next/head";
+import "./style.css"; // Import your CSS file here
+import Header from "./components/header";
 
 const Home = () => {
   return (
@@ -13,16 +14,7 @@ const Home = () => {
         <link rel="stylesheet" href="styles.css" />
       </Head>
 
-      <header>
-        <nav>
-          <ul className="nav-links">
-            <li><a href="./index">Home</a></li>
-            <li><a href="./about">About us</a></li>
-            <li><a href="./group">Chat with students</a></li>
-            <li><a href="./upload">Browse/Upload files</a></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       <main>
         <div className="hero">
