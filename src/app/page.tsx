@@ -2,16 +2,17 @@
 
 import Head from "next/head";
 import Header from "./components/header";
-import "./home.css";
+import "home.css";
 
 const HomePage = () => {
   return (
     <div>
       <Head>
         <title>Study Group Platform</title>
-        <link rel="stylesheet" href="home.css" />
+        <link rel="stylesheet" href="styles.css" />
       </Head>
       <Header></Header>
+
       <main>
         <div className="hero">
           <div className="hero-text">
