@@ -6,13 +6,13 @@ const PORT = 3000;
 app.use(express.static(path.join(__dirname)));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/upload', (req, res) => {
-  res.sendFile(path.join(__dirname, 'upload.html'));
+    res.sendFile(path.join(__dirname, 'upload.html'));
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
