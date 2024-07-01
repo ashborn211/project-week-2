@@ -1,56 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upload Files</title>
     <link rel="stylesheet" href="upload-styles.css" />
     <script>
-        function toggleDropdown(element) {
-            const dropdown = element.nextElementSibling;
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
+      function toggleDropdown(element) {
+        const dropdown = element.nextElementSibling;
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      }
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <div class="logo">Logo</div>
-            <ul class="nav-links">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About us</a></li>
-                <li><a href="./group.html">Chat with students</a></li>
-                <li><a href="./upload.html">Browse/Upload files</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About us</a></li>
+          <li><a href="./group.html">Chat with students</a></li>
+          <li><a href="./upload.html">Browse/Upload files</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div class="upload-section">
-            <h2>Upload a File</h2>
-            <form id="uploadForm">
-                <input type="file" id="fileInput" accept="image/*" required />
-                <input type="text" id="subjectInput" placeholder="Subject" required />
-                <!-- Multi-select dropdown for tags -->
-                <div class="multiselect">
-                    <div class="selectbox" onclick="toggleDropdown(this)">
-                        Select Tags
-                    </div>
-                    <div class="dropdown-content" id="tagsDropdown">
-                        <a href="#" data-value="Math">Math</a>
-                        <a href="#" data-value="Science">Science</a>
-                        <a href="#" data-value="History">History</a>
-                        <a href="#" data-value="Literature">Literature</a>
-                        <!-- Add more tags as needed -->
-                    </div>
-                </div>
-                <button type="submit">Upload</button>
-            </form>
-            <ul id="fileList"></ul>
-        </div>
+      <div class="upload-section">
+        <h2>Upload a File</h2>
+        <form id="uploadForm">
+          <input type="file" id="fileInput" accept="image/*" required />
+          <input type="text" id="subjectInput" placeholder="Subject" required />
+          <!-- Multi-select dropdown for tags -->
+          <div class="multiselect">
+            <div class="selectbox" onclick="toggleDropdown(this)">
+              Select Tags
+            </div>
+            <div class="dropdown-content" id="tagsDropdown">
+              <a href="#" data-value="Math">Math</a>
+              <a href="#" data-value="Science">Science</a>
+              <a href="#" data-value="History">History</a>
+              <a href="#" data-value="Literature">Literature</a>
+              <!-- Add more tags as needed -->
+            </div>
+          </div>
+          <button type="submit">Upload</button>
+        </form>
+        <ul id="fileList"></ul>
+      </div>
     </main>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

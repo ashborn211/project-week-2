@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Study Groups</title>
-    <link rel="stylesheet" href="group.css">
-</head>
-<body>
+    <link rel="stylesheet" href="group.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="logo">Logo</div>
-            <ul class="nav-links">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">More</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About us</a></li>
+          <li><a href="./group.html">Chat with students</a></li>
+          <li><a href="./upload.html">Browse/Upload files</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div class="container">
-            <header>
-                <h1>Study Groups</h1>
-            </header>
-            <main class="main-content">
-                <div class="chatroom-list">
-                    <h2>Select a Chatroom</h2>
-                    <ul>
-                        <li><button class="subject-btn" onclick="openChatroom('math')">Math</button></li>
-                        <li><button class="subject-btn" onclick="openChatroom('science')">Science</button></li>
-                        <li><button class="subject-btn" onclick="openChatroom('history')">History</button></li>
-                        <li><button class="subject-btn" onclick="openChatroom('english')">English</button></li>
-                    </ul>
-                </div>
-                <div class="chatroom" id="chatroom">
-                    <div class="messages" id="messages"></div>
-                    <div class="message-input">
-                        <input type="text" id="messageText" placeholder="Type your message...">
-                        <button onclick="sendMessage()">Send</button>
-                    </div>
-                </div>
-            </main>
-        </div>
+      <div class="container">
+        <header>
+          <h1>Study Groups</h1>
+        </header>
+        <main class="main-content">
+          <div class="chatroom-list">
+            <h2>Select a Chatroom</h2>
+            <ul>
+              <li>
+                <button class="subject-btn" onclick="openChatroom('math')">
+                  Math
+                </button>
+              </li>
+              <li>
+                <button class="subject-btn" onclick="openChatroom('science')">
+                  Science
+                </button>
+              </li>
+              <li>
+                <button class="subject-btn" onclick="openChatroom('history')">
+                  History
+                </button>
+              </li>
+              <li>
+                <button class="subject-btn" onclick="openChatroom('english')">
+                  English
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="chatroom" id="chatroom">
+            <div class="messages" id="messages"></div>
+            <div class="message-input">
+              <input
+                type="text"
+                id="messageText"
+                placeholder="Type your message..."
+              />
+              <button onclick="sendMessage()">Send</button>
+            </div>
+          </div>
+        </main>
+      </div>
     </main>
     <script src="group.js"></script>
-</body>
+  </body>
 </html>
