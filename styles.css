@@ -30,9 +30,8 @@ nav {
 
 main {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: calc(100vh - 60px);
   padding: 20px;
 }
 
@@ -90,4 +89,61 @@ main {
   max-width: 100%;
   height: auto;
   background-color: #ddd;
+}
+
+.upload-section {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.upload-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#uploadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#uploadForm input[type="file"],
+#uploadForm input[type="text"],
+#uploadForm button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+#fileList {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+#fileList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+#fileList li .subject {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.upload-link {
+  margin-top: 20px;
+}
+
+.upload-link a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  border: 1px solid #333;
+  display: inline-block;
 }
