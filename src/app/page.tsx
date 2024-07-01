@@ -35,6 +35,7 @@ const Home = () => {
               alt="Study Group Image"
             />
           </div>
+          </div>
         </div>
 
         {/* New Sections */}
