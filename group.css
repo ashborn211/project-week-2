@@ -43,19 +43,18 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-header {
     text-align: center;
-    margin-bottom: 20px;
 }
 
 header h1 {
     color: #333;
+    margin-bottom: 20px;
 }
 
-main {
+.chatroom-wrapper {
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .chatroom-list {
@@ -64,6 +63,7 @@ main {
     background: #fff;
     border-radius: 8px;
     margin-right: 20px;
+    max-width: 200px;
 }
 
 .chatroom-list h2 {
@@ -100,6 +100,7 @@ main {
     border-radius: 8px;
     display: none;
     flex-direction: column;
+    width: 100%;
 }
 
 .messages {
