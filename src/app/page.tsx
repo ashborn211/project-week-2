@@ -1,17 +1,21 @@
-// pages/home.tsx
+// pages/index.tsx
 
 import Head from "next/head";
+import "./style.css"; // Import your CSS file here
 import Header from "./components/header";
-import "./home.css";
 
-const HomePage = () => {
+const Home = () => {
   return (
     <div>
       <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Study Group Platform</title>
-        <link rel="stylesheet" href="home.css" />
+        <link rel="stylesheet" href="styles.css" />
       </Head>
-      <Header></Header>
+
+      <Header />
+
       <main>
         <div className="hero">
           <div className="hero-text">
@@ -31,8 +35,10 @@ const HomePage = () => {
               alt="Study Group Image"
             />
           </div>
+          </div>
         </div>
 
+        {/* New Sections */}
         <section className="features">
           <h2>Find Study Groups for Collaborative Learning</h2>
           <div className="features-container">
@@ -79,4 +85,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

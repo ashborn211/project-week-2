@@ -1,6 +1,5 @@
 // components/Header.js
 import React from "react";
-import Link from "next/link";
 import "./header.css";
 
 const Header = () => {
@@ -9,16 +8,16 @@ const Header = () => {
       <nav>
         <ul className="nav-links">
           <li>
-            <Link href="/">Home</Link>
+            <a href="./index.html">Home</a>
           </li>
           <li>
-            <Link href="/about">About us</Link>
+            <a href="./about.html">About us</a>
           </li>
           <li>
-            <Link href="/chatrooms">Chat with students</Link>
+            <a href="./group.html">Chat with students</a>
           </li>
           <li>
-            <Link href="/upload">Browse/Upload files</Link>
+            <a href="./upload.html">Browse/Upload files</a>
           </li>
         </ul>
       </nav>
