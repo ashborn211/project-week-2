@@ -1,22 +1,24 @@
 // components/Header.js
 import React from "react";
+import Link from "next/link";
 import "./header.css";
+
 const Header = () => {
   return (
     <header>
       <nav>
         <ul className="nav-links">
           <li>
-            <a href="./index.html">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="./about.html">About us</a>
+            <Link href="/about">About us</Link>
           </li>
           <li>
-            <a href="./group.html">Chat with students</a>
+            <Link href="/chatrooms">Chat with students</Link>
           </li>
           <li>
-            <a href="./upload.html">Browse/Upload files</a>
+            <Link href="/upload">Browse/Upload files</Link>
           </li>
         </ul>
       </nav>
