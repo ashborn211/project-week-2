@@ -242,3 +242,10 @@ main {
 .dropdown-content-multiselect a:hover {
   background-color: #e9e9e9;
 }
+
+.file-preview {
+  max-width: 100px; /* Adjust as needed */
+  max-height: 100px; /* Adjust as needed */
+  margin-top: 10px; /* Example margin, adjust as needed */
+  border: 1px solid #ddd; /* Example border, adjust as needed */
+}

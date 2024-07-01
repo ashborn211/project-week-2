@@ -29,7 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     subjectInput.value = '';
                     clearSelectedTags();
                 };
-                reader.readAsDataURL(file);
+
+                if (file.type.startsWith('image')) {
+                    reader.readAsDataURL(file); // Read image file for preview
+                } else {
+                    reader.readAsText(file); // Read other file types (not previewed)
+                }
             } else {
                 alert('Please select a file, enter a subject, and choose at least one tag.');
             }
@@ -44,15 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
         function displayFile(fileData) {
             const li = document.createElement('li');
             li.innerHTML = `
-          <span class="subject">${fileData.subject}</span><br>
-          <span>${fileData.name}</span><br>
-          <span class="details">${fileData.tags.join(', ')}</span><br>
-          <button onclick="downloadFile('${fileData.content}', '${fileData.name}')">Download</button><br>
-          <span class="details">(${fileData.timestamp})</span>
-        `;
+              <div>
+                <span class="subject">${fileData.subject}</span><br>
+                <span>${fileData.name}</span><br>
+                <span class="details">${fileData.tags.join(', ')}</span><br>
+                <span class="details">(${fileData.timestamp})</span>
+                <img src="${fileData.content}" class="file-preview" alt="File Preview">
+                <button onclick="downloadFile('${fileData.content}', '${fileData.name}')">Download</button>
+              </div>
+            `;
             li.classList.add('file-item');
             fileList.appendChild(li);
-        }
+          }
+          
 
         window.downloadFile = (content, filename) => {
             const link = document.createElement('a');
