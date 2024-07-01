@@ -1,95 +1,95 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// pages/index.tsx
 
-export default function Home() {
+import Head from 'next/head';
+import './style.css'; // Import your CSS file here
+
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <div>
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Study Group Platform</title>
+        <link rel="stylesheet" href="styles.css" />
+      </Head>
+
+      <header>
+        <nav>
+          <ul className="nav-links">
+            <li><a href="./index">Home</a></li>
+            <li><a href="./about">About us</a></li>
+            <li><a href="./group">Chat with students</a></li>
+            <li><a href="./upload">Browse/Upload files</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <div className="hero">
+          <div className="hero-text">
+            <h1>Join Study Groups and Boost Your Learning</h1>
+            <p>
+              Welcome to our platform where students can connect with study
+              groups, collaborate on subjects, and excel in their studies.
+            </p>
+            <div className="hero-buttons">
+              <button className="get-started">Get Started</button>
+              <button className="learn-more">Learn More</button>
+            </div>
+          </div>
+          <div className="hero-image">
+            <img
+              src="https://eccles.utah.edu/wp-content/uploads/2015/04/Study-Group-web.jpeg"
+              alt="Study Group Image"
             />
-          </a>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        {/* New Sections */}
+        <section className="features">
+          <h2>Find Study Groups for Collaborative Learning</h2>
+          <div className="features-container">
+            <div className="feature">
+              <img
+                src="https://www.euroschoolindia.com/wp-content/uploads/2023/07/student-study-group.jpg"
+                alt="Engage in Live Chat"
+              />
+              <h3>Engage in Live Chat with Fellow Students</h3>
+              <p>
+                Connect with other students studying the same subjects and
+                exchange knowledge in real-time.
+              </p>
+              <button className="feature-button">Join</button>
+            </div>
+            <div className="feature">
+              <img
+                src="https://primeteamnames.com/wp-content/uploads/2024/02/Names-for-Bible-Study-Groups-1024x678.jpg"
+                alt="Names for Bible Study Groups"
+              />
+              <h3>Explore Bible Study Group Names</h3>
+              <p>
+                Discover various names for Bible study groups to enrich your
+                spiritual journey and learning experience.
+              </p>
+              <button className="feature-button">Explore</button>
+            </div>
+            <div className="feature">
+              <img
+                src="https://explore-blog.griffith.edu.au/wp-content/uploads/2021/01/PASS-scaled.jpg"
+                alt="Access Study Materials"
+              />
+              <h3>Access Study Materials and Resources</h3>
+              <p>
+                Discover a wide range of study materials, including notes,
+                practice questions, and helpful articles.
+              </p>
+              <button className="feature-button">Discover</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   );
-}
+};
+
+export default Home;
