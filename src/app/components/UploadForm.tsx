@@ -1,9 +1,7 @@
-
-"use client"
 import { useState, useEffect } from 'react';
 import { db, storage } from '../firebaseConfig'; // Adjust the path to your Firebase configuration
-import { collection, addDoc, getDocs, Timestamp } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { collection, addDoc, getDocs, Timestamp } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import UploadedFilesList from './UploadedFilesList'; // Import the new component
 
 const UploadForm: React.FC = () => {
@@ -15,12 +13,16 @@ const UploadForm: React.FC = () => {
 
   useEffect(() => {
     const fetchUploadedFiles = async () => {
-      const querySnapshot = await getDocs(collection(db, 'files'));
-      const filesList: any[] = [];
-      querySnapshot.forEach((doc) => {
-        filesList.push({ id: doc.id, ...doc.data() });
-      });
-      setUploadedFiles(filesList);
+      try {
+        const querySnapshot = await getDocs(collection(db, 'files'));
+        const filesList: any[] = [];
+        querySnapshot.forEach((doc) => {
+          filesList.push({ id: doc.id, ...doc.data() });
+        });
+        setUploadedFiles(filesList);
+      } catch (error) {
+        console.error('Error fetching uploaded files:', error);
+      }
     };
 
     fetchUploadedFiles();
@@ -75,19 +77,19 @@ const UploadForm: React.FC = () => {
         await addDoc(filesCollection, fileData);
 
         // Fetch updated uploaded files list
-        const querySnapshot = await getDocs(filesCollection);
-        const filesList: any[] = [];
-        querySnapshot.forEach((doc) => {
-          filesList.push({ id: doc.id, ...doc.data() });
+        const updatedQuerySnapshot = await getDocs(filesCollection);
+        const updatedFilesList: any[] = [];
+        updatedQuerySnapshot.forEach((doc) => {
+          updatedFilesList.push({ id: doc.id, ...doc.data() });
         });
-        setUploadedFiles(filesList);
+        setUploadedFiles(updatedFilesList);
 
         // Reset state
         setFile(null);
         setSubject('');
         setSelectedTags([]);
       } catch (error) {
-        console.error('Error uploading file metadata to Firestore: ', error);
+        console.error('Error uploading file and metadata:', error);
         // Handle error as needed
       }
     } else {

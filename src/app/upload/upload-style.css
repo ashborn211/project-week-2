@@ -1,34 +1,35 @@
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-  }
-  
-  header {
+}
+
+header {
     background-color: #333;
     color: white;
     padding: 15px 0;
-  }
-  
-  .nav-links {
+}
+
+.nav-links {
     list-style: none;
     display: flex;
     justify-content: center;
     padding: 0;
-  }
-  
-  .nav-links li {
+}
+
+.nav-links li {
     margin: 0 15px;
-  }
-  
-  .nav-links a {
+}
+
+.nav-links a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-  }
-  
-  .upload-section {
+}
+
+.upload-section {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -36,57 +37,74 @@ body {
     margin: 50px auto;
     max-width: 600px;
     text-align: center;
-  }
-  
-  .upload-section h2 {
+}
+
+.upload-section h2 {
     font-size: 24px;
     margin-bottom: 20px;
-  }
-  
-  #uploadForm {
+}
+
+#uploadForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  #fileInput, #subjectInput {
+}
+
+#fileInput, #subjectInput {
     margin: 10px 0;
     padding: 10px;
     font-size: 16px;
     width: 80%;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  #subjectInput {
+}
+
+#subjectInput {
     padding: 10px 15px;
-  }
-  
-  .tags-section {
-    margin: 15px 0;
-  }
-  
-  .tags-section span {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-  
-  .tags-section a {
-    margin: 0 10px;
+}
+
+.multiselect {
+    width: 80%;
+    position: relative;
+}
+
+.selectbox {
+    background-color: #eee;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.dropdown-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    margin: 5px;
     padding: 5px 10px;
     background-color: #333;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-  }
-  
-  .tags-section a:hover {
+}
+
+.dropdown-content a:hover {
     background-color: #555;
-  }
-  
-  #uploadButton {
+}
+
+.dropdown-content .selected {
+    background-color: #007bff;
+}
+
+button[type="submit"] {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #333;
@@ -95,8 +113,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  #uploadButton:hover {
+}
+
+button[type="submit"]:hover {
     background-color: #555;
-  }
+}
