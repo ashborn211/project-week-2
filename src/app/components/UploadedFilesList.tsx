@@ -8,20 +8,15 @@ type UploadedFilesListProps = {
 
 const UploadedFilesList: React.FC<UploadedFilesListProps> = ({ files, handleDownload }) => {
   const [filterTag, setFilterTag] = useState<string>('');
-  const [filterTimestamp, setFilterTimestamp] = useState<string>('');
 
   const handleTagFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterTag(event.target.value);
   };
 
-  const handleTimestampFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilterTimestamp(event.target.value);
-  };
 
   const filteredFiles = files.filter(file => {
     const matchesTag = filterTag ? file.tags.includes(filterTag) : true;
-    const matchesTimestamp = filterTimestamp ? file.createdAt.toDate().toISOString().startsWith(filterTimestamp) : true;
-    return matchesTag && matchesTimestamp;
+    return matchesTag;
   });
 
   return (
@@ -36,11 +31,6 @@ const UploadedFilesList: React.FC<UploadedFilesListProps> = ({ files, handleDown
           <option value="History">History</option>
           <option value="Literature">Literature</option>
         </select>
-        <input
-          type="date"
-          onChange={handleTimestampFilterChange}
-          value={filterTimestamp}
-        />
       </div>
       {filteredFiles.map((file) => (
         <div key={file.id} className="file-item">
