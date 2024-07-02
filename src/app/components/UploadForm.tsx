@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
-import { db, storage } from '../firebaseConfig'; // Adjust the path to your Firebase configuration
-import { collection, addDoc, getDocs, Timestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import UploadedFilesList from './UploadedFilesList'; // Import the new component
+import { useState, useEffect } from "react";
+import { db, storage } from "../firebaseConfig"; // Adjust the path to your Firebase configuration
+import { collection, addDoc, getDocs, Timestamp } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import UploadedFilesList from "./UploadedFilesList"; // Import the new component
 
 const UploadForm: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [subject, setSubject] = useState<string>('');
+  const [subject, setSubject] = useState<string>("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [uploadedFiles, setUploadedFiles] = useState<any[]>([]);
-  const tags: string[] = ['Math', 'Science', 'History', 'Literature']; // Example tags
+  const tags: string[] = ["Math", "Science", "History", "Literature"]; // Example tags
 
   useEffect(() => {
     const fetchUploadedFiles = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'files'));
+        const querySnapshot = await getDocs(collection(db, "files"));
         const filesList: any[] = [];
         querySnapshot.forEach((doc) => {
           filesList.push({ id: doc.id, ...doc.data() });
         });
         setUploadedFiles(filesList);
       } catch (error) {
-        console.error('Error fetching uploaded files:', error);
+        console.error("Error fetching uploaded files:", error);
       }
     };
 
@@ -39,10 +39,10 @@ const UploadForm: React.FC = () => {
   };
 
   const toggleDropdown = () => {
-    const dropdown = document.getElementById('tagsDropdown');
+    const dropdown = document.getElementById("tagsDropdown");
     if (dropdown) {
       dropdown.style.display =
-        dropdown.style.display === 'block' ? 'none' : 'block';
+        dropdown.style.display === "block" ? "none" : "block";
     }
   };
 
@@ -73,7 +73,7 @@ const UploadForm: React.FC = () => {
         };
 
         // Add document with random ID to "files" collection
-        const filesCollection = collection(db, 'files'); // Correct way to reference a collection
+        const filesCollection = collection(db, "files"); // Correct way to reference a collection
         await addDoc(filesCollection, fileData);
 
         // Fetch updated uploaded files list
@@ -86,21 +86,23 @@ const UploadForm: React.FC = () => {
 
         // Reset state
         setFile(null);
-        setSubject('');
+        setSubject("");
         setSelectedTags([]);
       } catch (error) {
-        console.error('Error uploading file and metadata:', error);
+        console.error("Error uploading file and metadata:", error);
         // Handle error as needed
       }
     } else {
-      alert('Please select a file, enter a subject, and choose at least one tag.');
+      alert(
+        "Please select a file, enter a subject, and choose at least one tag."
+      );
     }
   };
 
   const handleDownload = (fileUrl: string, fileName: string) => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = fileUrl;
-    link.setAttribute('download', fileName);
+    link.setAttribute("download", fileName);
     document.body.appendChild(link);
     link.click();
     link.parentNode?.removeChild(link);
@@ -109,7 +111,12 @@ const UploadForm: React.FC = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="file" id="fileInput" onChange={handleFileChange} required />
+        <input
+          type="file"
+          id="fileInput"
+          onChange={handleFileChange}
+          required
+        />
         <input
           type="text"
           id="subjectInput"
@@ -119,15 +126,12 @@ const UploadForm: React.FC = () => {
           required
         />
         <div className="multiselect">
-          <div className="selectbox" onClick={toggleDropdown}>
-            Select Tags
-          </div>
           <div className="dropdown-content" id="tagsDropdown">
             {tags.map((tag) => (
               <a
                 key={tag}
                 href="#"
-                className={selectedTags.includes(tag) ? 'selected' : ''}
+                className={selectedTags.includes(tag) ? "selected" : ""}
                 onClick={(e) => {
                   e.preventDefault();
                   toggleTag(tag);
@@ -140,7 +144,10 @@ const UploadForm: React.FC = () => {
         </div>
         <button type="submit">Upload</button>
       </form>
-      <UploadedFilesList files={uploadedFiles} handleDownload={handleDownload} />
+      <UploadedFilesList
+        files={uploadedFiles}
+        handleDownload={handleDownload}
+      />
     </>
   );
 };

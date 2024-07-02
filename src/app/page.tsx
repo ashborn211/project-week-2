@@ -1,8 +1,9 @@
 // pages/index.tsx
 
 import Head from "next/head";
+import Header from "./components/header";
+import Link from "next/link";
 import "./home.css"; // Import your CSS file here
-import Header from "./components/header"; // Correct the path based on your project structure
 
 const Home = () => {
   return (
@@ -25,8 +26,14 @@ const Home = () => {
               groups, collaborate on subjects, and excel in their studies.
             </p>
             <div className="hero-buttons">
-              <button className="get-started">Get Started</button>
-              <button className="learn-more">Learn More</button>
+              {/* Link to Chatrooms page */}
+              <Link href="/chatrooms">
+                <button className="get-started">Get Started</button>
+              </Link>
+              {/* Link to Chatrooms page */}
+              <Link href="/chatrooms">
+                <button className="learn-more">Learn More</button>
+              </Link>
             </div>
           </div>
           <div className="hero-image">
@@ -50,7 +57,10 @@ const Home = () => {
                 Connect with other students studying the same subjects and
                 exchange knowledge in real-time.
               </p>
-              <button className="feature-button">Join</button>
+              {/* Link to Chatrooms page */}
+              <Link href="/chatrooms">
+                <button className="feature-button">Join</button>
+              </Link>
             </div>
             <div className="feature">
               <img
@@ -62,7 +72,10 @@ const Home = () => {
                 Discover various names for Bible study groups to enrich your
                 spiritual journey and learning experience.
               </p>
-              <button className="feature-button">Explore</button>
+              {/* Link to Chatrooms page */}
+              <Link href="/chatrooms">
+                <button className="feature-button">Explore</button>
+              </Link>
             </div>
             <div className="feature">
               <img
@@ -74,7 +87,10 @@ const Home = () => {
                 Discover a wide range of study materials, including notes,
                 practice questions, and helpful articles.
               </p>
-              <button className="feature-button">Discover</button>
+              {/* Link to Upload page */}
+              <Link href="/upload">
+                <button className="feature-button">Discover</button>
+              </Link>
             </div>
           </div>
         </section>
