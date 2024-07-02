@@ -1,7 +1,9 @@
-"use client"// src/app/upload/page.tsx
+"use client";
+
+// src/app/upload/page.tsx
 
 import Head from 'next/head';
-import UploadForm from '../components/UploadForm';
+import UploadForm from '../components/UploadForm'; // Adjusted import path if necessary
 import './upload-style.css'; // Import specific styles for the upload page
 
 const UploadPage = () => {
@@ -23,10 +25,10 @@ const UploadPage = () => {
       <header>
         <nav>
           <ul className="nav-links">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html">About us</a></li>
-            <li><a href="./group.html">Chat with students</a></li>
-            <li><a href="./upload.html">Browse/Upload files</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About us</a></li>
+            <li><a href="/group">Chat with students</a></li>
+            <li><a href="/upload">Browse/Upload files</a></li>
           </ul>
         </nav>
       </header>
