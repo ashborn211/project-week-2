@@ -1,8 +1,8 @@
 // pages/index.tsx
 
-import Head from 'next/head';
-import './style.css'; // Adjust the path to your CSS file
-import Header from './components/header'; // Adjust the path to your Header component
+import Head from "next/head";
+import "./home.css"; // Import your CSS file here
+import Header from "./components/header"; // Correct the path based on your project structure
 
 const Home = () => {
   return (

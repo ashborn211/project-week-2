@@ -68,6 +68,10 @@ header h1 {
 }
 
 .messages {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
@@ -75,7 +79,12 @@ header h1 {
   overflow-y: auto;
   max-height: 400px;
 }
-
+.message {
+  width: 100%;
+  height: auto;
+  min-height: 30px;
+  border: solid gray 1px;
+}
 .message-input {
   display: flex;
   margin-top: 10px;
