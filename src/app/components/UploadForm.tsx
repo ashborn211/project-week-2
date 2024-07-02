@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { db } from '../firebaseConfig'; // Adjust the path to your Firebase configuration
-
+import 'firebase/firestore';
 type UploadFormProps = {
   onSubmit: (file: File, subject: string, tags: string[]) => void;
 };
