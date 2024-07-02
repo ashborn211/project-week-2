@@ -5,12 +5,7 @@ import UploadForm from '../components/UploadForm';
 import './upload-style.css'; // Import specific styles for the upload page
 
 const UploadPage = () => {
-  const handleSubmit = (file: File, subject: string, tags: string[]) => {
-    // Handle form submission logic here (e.g., API call, state update, etc.)
-    console.log('File:', file);
-    console.log('Subject:', subject);
-    console.log('Tags:', tags);
-  };
+
 
   return (
     <div>
@@ -34,7 +29,7 @@ const UploadPage = () => {
       <main>
         <div className="upload-section">
           <h2>Upload a File</h2>
-          <UploadForm onSubmit={handleSubmit} />
+          <UploadForm />
           <ul id="fileList"></ul>
         </div>
       </main>
