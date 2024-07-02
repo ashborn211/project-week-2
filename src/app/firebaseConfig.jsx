@@ -8,13 +8,13 @@ import { getStorage, ref } from "firebase/storage";
 
 // Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID" // Optional for Firebase SDK version 7.20.0 and later
+  apiKey: "AIzaSyBfWm2f2aTJxk5Mo-VVHe6VuyVv40b-PhA",
+  authDomain: "project-week-2-1f71d.firebaseapp.com",
+  projectId: "project-week-2-1f71d",
+  storageBucket: "project-week-2-1f71d.appspot.com",
+  messagingSenderId: "607293842691",
+  appId: "1:607293842691:web:45cb5d348cd93dda45b536",
+  measurementId: "G-GERH9Y54PR"
 };
 
 // Initialize Firebase
