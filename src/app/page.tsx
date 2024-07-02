@@ -1,136 +1,86 @@
-"use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth, provider, db } from "./firebaseConfig"; // Adjust path as needed
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-  setDoc,
-} from "firebase/firestore";
-import "./style.css"; // Import your login styles here
+// pages/index.tsx
 
-const standardProfilePicture =
-  "https://hongkongfp.com/wp-content/uploads/2023/06/20230610_164958-Copy.jpg";
+import Head from "next/head";
+import "./home.css"; // Import your CSS file here
+import Header from "./components/header"; // Correct the path based on your project structure
 
-const LoginPage = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-
-  const router = useRouter();
-
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful!");
-      router.push("/user");
-    } catch (error: any) {
-      console.error(error.message);
-      if (error.code === "auth/user-not-found") {
-        const register = confirm(
-          "User does not exist. Do you want to register?"
-        );
-        if (register) {
-          router.push("/register");
-        }
-      } else if (error.code === "auth/wrong-password") {
-        alert("Incorrect password. Please try again.");
-      } else {
-        alert("Login failed. Please try again.");
-      }
-    }
-  };
-
-  const handleGoogleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      // Check if user already exists in Firestore
-      const userQuery = query(
-        collection(db, "users"),
-        where("email", "==", user.email)
-      );
-      const userQuerySnapshot = await getDocs(userQuery);
-
-      if (userQuerySnapshot.empty) {
-        // User doesn't exist, create a new document
-        await setDoc(doc(db, "users", user.uid), {
-          userId: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          profilePicture: user.photoURL || standardProfilePicture,
-        });
-      }
-
-      router.push("/home");
-    } catch (error: any) {
-      console.error("Error signing in with Google:", error.message);
-      alert("Google Sign-In failed. Please try again.");
-    }
-  };
-
+const Home = () => {
   return (
-    <main className="login-main">
-      <form onSubmit={handleLogin}>
-        <div className="container">
-          <h1 className="stroke-text">MyChan</h1>
-          <p>Sign into the world's best webpage!</p>
-          <div className="parent-container">
-            <div className="login-box">
-              <h2>Member Login</h2>
+    <div>
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Study Group Platform</title>
+        <link rel="stylesheet" href="/styles/style.css" />
+      </Head>
 
-              <label htmlFor="email">
-                E-Mail:
-                <input
-                  type="email"
-                  className="form-input"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </label>
+      <Header />
 
-              <label htmlFor="password">
-                Password:
-                <input
-                  type="password"
-                  className="form-input"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </label>
-
-              <a href="#">Password forgotten?</a>
-
-              <div className="button-container">
-                <button
-                  onClick={handleGoogleSignIn}
-                  className="login-link google-login"
-                >
-                  Google
-                </button>
-                <button type="submit" className="login-link">
-                  LOGIN
-                </button>
-              </div>
-
-              <p>
-                <Link href="/register">Or Sign Up Instead</Link>
-              </p>
+      <main>
+        <div className="hero">
+          <div className="hero-text">
+            <h1>Join Study Groups and Boost Your Learning</h1>
+            <p>
+              Welcome to our platform where students can connect with study
+              groups, collaborate on subjects, and excel in their studies.
+            </p>
+            <div className="hero-buttons">
+              <button className="get-started">Get Started</button>
+              <button className="learn-more">Learn More</button>
             </div>
           </div>
+          <div className="hero-image">
+            <img
+              src="https://eccles.utah.edu/wp-content/uploads/2015/04/Study-Group-web.jpeg"
+              alt="Study Group Image"
+            />
+          </div>
         </div>
-      </form>
-    </main>
+
+        <section className="features">
+          <h2>Find Study Groups for Collaborative Learning</h2>
+          <div className="features-container">
+            <div className="feature">
+              <img
+                src="https://www.euroschoolindia.com/wp-content/uploads/2023/07/student-study-group.jpg"
+                alt="Engage in Live Chat"
+              />
+              <h3>Engage in Live Chat with Fellow Students</h3>
+              <p>
+                Connect with other students studying the same subjects and
+                exchange knowledge in real-time.
+              </p>
+              <button className="feature-button">Join</button>
+            </div>
+            <div className="feature">
+              <img
+                src="https://primeteamnames.com/wp-content/uploads/2024/02/Names-for-Bible-Study-Groups-1024x678.jpg"
+                alt="Names for Bible Study Groups"
+              />
+              <h3>Explore Bible Study Group Names</h3>
+              <p>
+                Discover various names for Bible study groups to enrich your
+                spiritual journey and learning experience.
+              </p>
+              <button className="feature-button">Explore</button>
+            </div>
+            <div className="feature">
+              <img
+                src="https://explore-blog.griffith.edu.au/wp-content/uploads/2021/01/PASS-scaled.jpg"
+                alt="Access Study Materials"
+              />
+              <h3>Access Study Materials and Resources</h3>
+              <p>
+                Discover a wide range of study materials, including notes,
+                practice questions, and helpful articles.
+              </p>
+              <button className="feature-button">Discover</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 };
 
-export default LoginPage;
+export default Home;
