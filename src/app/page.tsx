@@ -1,8 +1,8 @@
 // pages/index.tsx
 
-import Head from "next/head";
-import "./style.css"; // Import your CSS file here
-import Header from "./components/header";
+import Head from 'next/head';
+import './style.css'; // Adjust the path to your CSS file
+import Header from './components/header'; // Adjust the path to your Header component
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Study Group Platform</title>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="/styles/style.css" />
       </Head>
 
       <Header />
@@ -35,10 +35,8 @@ const Home = () => {
               alt="Study Group Image"
             />
           </div>
-          </div>
         </div>
 
-        {/* New Sections */}
         <section className="features">
           <h2>Find Study Groups for Collaborative Learning</h2>
           <div className="features-container">
