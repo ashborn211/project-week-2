@@ -1,5 +1,4 @@
-"use client"// src/app/upload/page.tsx
-
+"use client"
 import Head from 'next/head';
 import UploadForm from '../components/UploadForm';
 import './upload-style.css'; // Import specific styles for the upload page
