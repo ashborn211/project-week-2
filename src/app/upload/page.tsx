@@ -1,11 +1,10 @@
-"use client"
-import Head from 'next/head';
-import UploadForm from '../components/UploadForm';
-import './upload-style.css'; // Import specific styles for the upload page
+"use client";
+import Head from "next/head";
+import UploadForm from "../components/UploadForm";
+import "./upload-style.css"; // Import specific styles for the upload page
+import Header from "../components/header"; // Correct the path based on your project structure
 
 const UploadPage = () => {
-
-
   return (
     <div>
       <Head>
@@ -14,16 +13,7 @@ const UploadPage = () => {
         <title>Upload Files</title>
       </Head>
 
-      <header>
-        <nav>
-          <ul className="nav-links">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html">About us</a></li>
-            <li><a href="./group.html">Chat with students</a></li>
-            <li><a href="./upload.html">Browse/Upload files</a></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       <main>
         <div className="upload-section">
