@@ -1,8 +1,8 @@
 // pages/index.tsx
 
 import Head from "next/head";
-import "./style.css"; // Import your CSS file here
-import Header from "./components/header";
+import "./home.css"; // Import your CSS file here
+import Header from "./components/header"; // Correct the path based on your project structure
 
 const Home = () => {
   return (
@@ -34,7 +34,6 @@ const Home = () => {
               src="https://eccles.utah.edu/wp-content/uploads/2015/04/Study-Group-web.jpeg"
               alt="Study Group Image"
             />
-          </div>
           </div>
         </div>
 
